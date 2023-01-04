@@ -26,12 +26,13 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 300,
+                  height: 200,
                   width: 300,
                   decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(30)),
                   child: Image.asset('assets/image/LOGO.png'),
                 ),
+                Text("Quick WhatsApp...!",style: TextStyle(fontSize: 20),),
                 ],
             ),
           ),

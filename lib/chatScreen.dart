@@ -62,14 +62,15 @@ class _ChatSCreenState extends State<ChatSCreen> {
                   height: 60,
                   width: 60,
                   child: TextField(
+                    cursorColor: Colors.black,
                     controller: txtcode,
                     decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xff000000)),
+                          borderSide: BorderSide(color: Color(0xff000000),width: 2),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xff000000)),
+                          borderSide: BorderSide(color: Color(0xff000000),width: 2),
                           borderRadius: BorderRadius.circular(10),
                         ),
 
@@ -88,14 +89,15 @@ class _ChatSCreenState extends State<ChatSCreen> {
                       height: 60,
                       width: 200,
                       child: TextField(
+                        cursorColor: Colors.black,
                         controller: txtmobail,
                    decoration: InputDecoration(
                      focusedBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Color(0xff000000)),
+                       borderSide: BorderSide(color: Color(0xff000000),width: 2),
                        borderRadius: BorderRadius.circular(10),
                      ),
                      enabledBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Color(0xff000000)),
+                       borderSide: BorderSide(color: Color(0xff000000),width: 2),
                        borderRadius: BorderRadius.circular(10),
                      ),
                      hintText: "Mobail Number"
@@ -114,15 +116,16 @@ class _ChatSCreenState extends State<ChatSCreen> {
                 SizedBox(
                   width: 275,
                   child: TextField(
+                    cursorColor: Colors.black,
                     controller: txtname,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(20),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xff000000)),
+                        borderSide: BorderSide(color: Color(0xff000000),width: 2),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xff000000)),
+                        borderSide: BorderSide(color: Color(0xff000000),width: 2),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       hintText: "Enter Your Massage"

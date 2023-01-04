@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 20,
                   ),
-                  Text("    Quick WA \n Massages...!",style: TextStyle(fontSize: 20),),
+                  Text("    Quick WhatsApp \n message to any one..!",style: TextStyle(fontSize: 20),),
                   SizedBox(
                     height: 50,
                   ),
