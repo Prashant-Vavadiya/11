@@ -14,25 +14,11 @@ class Level9Screen extends StatefulWidget {
 }
 
 class _Level9ScreenState extends State<Level9Screen> {
-  AssetsAudioPlayer? assetsAudioPlayer;
 
   AudioProvider? homeproviderTrue;
   AudioProvider? homeproviderFalse;
   @override
-  void initState() {
-    super.initState();
-    assetsAudioPlayer = AssetsAudioPlayer();
-    playAudio();
-  }
 
-  void playAudio() async {
-    await assetsAudioPlayer!
-        .open(Audio("assets/song/song.mp3"), autoStart: true);
-
-    assetsAudioPlayer!.current.listen((event) {
-      homeproviderFalse!.dura(event!.audio.duration);
-    });
-  }
   Widget build(BuildContext context) {
     homeproviderTrue = Provider.of<AudioProvider>(context, listen: true);
     homeproviderFalse = Provider.of<AudioProvider>(context, listen: false);
@@ -56,26 +42,21 @@ class _Level9ScreenState extends State<Level9Screen> {
                   width: 80,
                   child: IconButton(
                     onPressed: () {
-                      homeproviderFalse!.play();
 
-                      if (homeproviderFalse!.isPlay == false) {
-                        assetsAudioPlayer!.play();
-                      } else {
-                        assetsAudioPlayer!.pause();
-                      }
+                      homeproviderTrue!.playpuse();
                     },
-                    icon: homeproviderTrue?.isPlay == true
+                    icon: homeproviderTrue?.isPlay == false
                         ? Container(
                       height: 70,
                       width: 70,
                       decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: Image.asset('assets/Image/Off.png'),
+                      child: Image.asset('assets/Image/on.png'),
                     )
                         :Container(
                       height: 70,
                       width: 70,
                       decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: Image.asset('assets/Image/on.png'),
+                      child: Image.asset('assets/Image/Off.png'),
                     ),),
                 ),
               ),

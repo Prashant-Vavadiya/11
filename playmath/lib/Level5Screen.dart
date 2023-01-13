@@ -15,29 +15,17 @@ class Level5Screen extends StatefulWidget {
 }
 
 class _Level5ScreenState extends State<Level5Screen> {
-  AssetsAudioPlayer? assetsAudioPlayer;
-
   AudioProvider? homeproviderTrue;
   AudioProvider? homeproviderFalse;
+
+
+
   @override
-  void initState() {
-    super.initState();
-    assetsAudioPlayer = AssetsAudioPlayer();
-    playAudio();
-  }
-
-  void playAudio() async {
-    await assetsAudioPlayer!
-        .open(Audio("assets/song/song.mp3"), autoStart: true);
-
-    assetsAudioPlayer!.current.listen((event) {
-      homeproviderFalse!.dura(event!.audio.duration);
-    });
-  }
   Widget build(BuildContext context) {
     homeproviderTrue = Provider.of<AudioProvider>(context, listen: true);
     homeproviderFalse = Provider.of<AudioProvider>(context, listen: false);
-    return SafeArea(child: Scaffold(
+    return SafeArea(
+        child: Scaffold(
       body: Column(
         children: [
           Container(
@@ -45,7 +33,13 @@ class _Level5ScreenState extends State<Level5Screen> {
             height: 130,
             width: double.infinity,
             color: Color(0xffFBDAB1),
-            child: Text("Math is Fun!",style: TextStyle(fontSize: 45,fontWeight: FontWeight.w500,color: Color(0xffEE8B60)),),
+            child: Text(
+              "Math is Fun!",
+              style: TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xffEE8B60)),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,34 +51,30 @@ class _Level5ScreenState extends State<Level5Screen> {
                   width: 80,
                   child: IconButton(
                     onPressed: () {
-                      homeproviderFalse!.play();
-
-                      if (homeproviderFalse!.isPlay == false) {
-                        assetsAudioPlayer!.play();
-                      } else {
-                        assetsAudioPlayer!.pause();
-                      }
+                      homeproviderTrue!.playpuse();
                     },
-                    icon: homeproviderTrue?.isPlay == true
+                    icon: homeproviderTrue?.isPlay == false
                         ? Container(
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: Image.asset('assets/Image/Off.png'),
-                    )
-                        :Container(
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: Image.asset('assets/Image/on.png'),
-                    ),),
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(shape: BoxShape.circle),
+                            child: Image.asset('assets/Image/on.png'),
+                          )
+                        : Container(
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(shape: BoxShape.circle),
+                            child: Image.asset('assets/Image/Off.png'),
+                          ),
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(4),
                 child: InkWell(
-                  onTap: (){
-                    Navigator.push(context,MaterialPageRoute(builder:(context)=> HomeScreen()));
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
                   },
                   child: Container(
                     height: 50,
@@ -99,7 +89,13 @@ class _Level5ScreenState extends State<Level5Screen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("How many Octagone?",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500,color: Color(0xffEE8B60)),)
+              Text(
+                "How many Octagone?",
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xffEE8B60)),
+              )
             ],
           ),
           Row(
@@ -108,8 +104,10 @@ class _Level5ScreenState extends State<Level5Screen> {
               Container(
                 height: 300,
                 width: 300,
-
-                child: Image.asset('assets/Image/Octagone.png',fit: BoxFit.fill,),
+                child: Image.asset(
+                  'assets/Image/Octagone.png',
+                  fit: BoxFit.fill,
+                ),
               )
             ],
           ),
@@ -120,23 +118,31 @@ class _Level5ScreenState extends State<Level5Screen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
-                onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder:(context)=> WAnswerScreen()));
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WAnswerScreen()));
                 },
                 child: Container(
                   height: 50,
                   width: 120,
-                  child: Image.asset('assets/Image/Card01.png',fit: BoxFit.fill,),
+                  child: Image.asset(
+                    'assets/Image/Card01.png',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               InkWell(
-                onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder:(context)=> WAnswerScreen()));
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WAnswerScreen()));
                 },
                 child: Container(
                   height: 50,
                   width: 120,
-                  child: Image.asset('assets/Image/Card09.png',fit: BoxFit.fill,),
+                  child: Image.asset(
+                    'assets/Image/Card09.png',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               )
             ],
@@ -148,24 +154,31 @@ class _Level5ScreenState extends State<Level5Screen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
-                onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder:(context)=> Wow5Screen()));
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Wow5Screen()));
                 },
                 child: Container(
                   height: 50,
                   width: 120,
-                  child: Image.asset('assets/Image/Card02.png',fit: BoxFit.fill,),
+                  child: Image.asset(
+                    'assets/Image/Card02.png',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               InkWell(
-                onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder:(context)=> WAnswerScreen()));
-
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WAnswerScreen()));
                 },
                 child: Container(
                   height: 50,
                   width: 120,
-                  child: Image.asset('assets/Image/Card06.png',fit: BoxFit.fill,),
+                  child: Image.asset(
+                    'assets/Image/Card06.png',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               )
             ],

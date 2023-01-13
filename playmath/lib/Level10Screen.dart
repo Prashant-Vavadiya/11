@@ -1,6 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:playmath/HomeScreen.dart';
+import 'package:playmath/Wow10Screen.dart';
 import 'package:playmath/homeProvider.dart';
 import 'package:playmath/wanswerScreen.dart';
 import 'package:provider/provider.dart';
@@ -13,25 +14,12 @@ class Level10Screen extends StatefulWidget {
 }
 
 class _Level10ScreenState extends State<Level10Screen> {
-  AssetsAudioPlayer? assetsAudioPlayer;
 
   AudioProvider? homeproviderTrue;
   AudioProvider? homeproviderFalse;
+
   @override
-  void initState() {
-    super.initState();
-    assetsAudioPlayer = AssetsAudioPlayer();
-    playAudio();
-  }
 
-  void playAudio() async {
-    await assetsAudioPlayer!
-        .open(Audio("assets/song/song.mp3"), autoStart: true);
-
-    assetsAudioPlayer!.current.listen((event) {
-      homeproviderFalse!.dura(event!.audio.duration);
-    });
-  }
   Widget build(BuildContext context) {
     homeproviderTrue = Provider.of<AudioProvider>(context, listen: true);
     homeproviderFalse = Provider.of<AudioProvider>(context, listen: false);
@@ -55,26 +43,21 @@ class _Level10ScreenState extends State<Level10Screen> {
                   width: 80,
                   child: IconButton(
                     onPressed: () {
-                      homeproviderFalse!.play();
 
-                      if (homeproviderFalse!.isPlay == false) {
-                        assetsAudioPlayer!.play();
-                      } else {
-                        assetsAudioPlayer!.pause();
-                      }
+                      homeproviderTrue!.playpuse();
                     },
-                    icon: homeproviderTrue?.isPlay == true
+                    icon: homeproviderTrue?.isPlay == false
                         ? Container(
                       height: 70,
                       width: 70,
                       decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: Image.asset('assets/Image/Off.png'),
+                      child: Image.asset('assets/Image/on.png'),
                     )
                         :Container(
                       height: 70,
                       width: 70,
                       decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: Image.asset('assets/Image/on.png'),
+                      child: Image.asset('assets/Image/Off.png'),
                     ),),
                 ),
               ),
@@ -97,7 +80,7 @@ class _Level10ScreenState extends State<Level10Screen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("How many Animales & Shaps?",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500,color: Color(0xffEE8B60)),)
+              Text("How many Animales & Shaps?",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,color: Color(0xffEE8B60)),)
             ],
           ),
           Row(
@@ -129,7 +112,7 @@ class _Level10ScreenState extends State<Level10Screen> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder:(context)=> WAnswerScreen()));
+                  Navigator.push(context,MaterialPageRoute(builder:(context)=> Wow10Screen()));
                 },
                 child: Container(
                   height: 50,
